@@ -26,14 +26,16 @@
         <div class="collapse navbar-collapse" id="barraSuperior">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="index.html"><h3>Home</h3><span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="index.html">Home<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><h3>Mas vendidos</h3></a>
+                    <a class="nav-link" href="#">Mas vendidos</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="collapse" href="#otros" aria-expanded="false" aria-controls="collapseExample">
-                        <h3>Otros</h3></a>
+                <li class="nav-item dropdown dropright">
+                    <a id="navbardrop" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Otros</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="tabla.html"><h4>Tabla</h4></a>
+                    </div>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
@@ -42,15 +44,6 @@
             </form>
         </div>
     </nav>
-    <div class="collapse" id="otros">
-        <div class="card card-body">
-            <ul>
-                <li>
-                    <a class="link" href="tabla.html"><h4>Tabla</h4></a>
-                </li>
-            </ul>
-        </div>
-    </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

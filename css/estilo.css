@@ -6,10 +6,13 @@
 
 body{
     font-family: 'Neucha', cursive;
+    
+    background: linear-gradient(to right, #E5F2F8, #8ABFDA);
 }
 
 .navbar{
     background: linear-gradient(to right, #E5F2F8, #8ABFDA);
+    border-bottom: 2px solid white;
 }
 
 .nav-item{
@@ -22,8 +25,7 @@ body{
     justify-content: center;
     align-items: center;
     height: 75vh;
-    border: 2px solid #8ABFDA;
-    border-radius: .25rem;
+    border-bottom: 2px solid white;
 }
    /* max-height: 75vh;
     margin-top: 1%;
@@ -46,11 +48,21 @@ body{
     max-width: 100vh;
     margin-left: auto;
     margin-right: auto;
+    border: 2px solid #8ABFDA;
+    border-radius: .25rem;
 }
 
-.carousel-caption, .carousel-caption h4{
+.carousel-caption {
     color: black;
-    text-shadow: 0 0 10px white ;
+    text-shadow: 1px 1px 7px white ;
     font-weight: bold;
-    font-size: 150%;
+    padding: 0;
+}
+
+.carousel-caption p {
+    font-size: 130%;
+}
+
+.carousel-control-next:hover, .carousel-control-prev:hover, .carousel-caption{
+    background-color: rgba(0, 0, 0, 0.151);
 }

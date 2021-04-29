@@ -57,3 +57,30 @@ body{
     box-shadow: 0px 25px 25px rgba(0, 0, 0, 0.151);
     border-radius: .25rem;
 }
+
+.container h2{
+    text-align: center;
+    margin-top: 1em;
+}
+
+.practico{
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 3em;
+    margin-bottom: 1em;
+    border: 1px solid black;
+    border-radius: 2em;
+}
+
+.ejercicioJS{
+    display:contents;
+}
+
+.ejercicioJS .boton{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    background-color: #8ABFDA;
+    box-shadow: 2px 2px 2px black;
+    border-radius: 2em;
+    margin: auto;
+    margin-top: 1em;
+}

@@ -2,24 +2,44 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-size: 1.075em;
 }
 
 body{
     font-family: 'Neucha', cursive;
-    
     background: linear-gradient(to right, #E5F2F8, #8ABFDA);
 }
 
+/*---------estilos de la barra superior----------*/
 .navbar{
-    background: linear-gradient(to right, #E5F2F8, #8ABFDA);
+    background: linear-gradient(to right, #E5F2F8, #8abfda);
     border-bottom: 2px solid white;
 }
 
-.nav-item{
-    font-size: 1.875em;
+.btn-outline-success{
+    color: #637077 !important;
+    border-color: #637077 !important;
+    background-color: transparent !important;
+}
+/*#4ebcf3*/
+
+.btn-outline-success:hover{
+    color: black !important;
+    background-color: rgba(0, 0, 0, 0.151) !important;
+    border-color: black !important;
 }
 
+.btn-outline-success:active,.btn-outline-success .active{
+    color: white !important;
+    background-color: #4ebcf3 !important;
+    border-color: black !important;
+}
 
+.btn-outline-success:focus{
+    box-shadow: 0 0 0 0.2rem rgba(78, 188, 243, 0.8) !important;
+}
+
+/*---------------------estilos del carruel---------------*/
 #carrusel{
     display: flex;
     justify-content: center;
@@ -63,6 +83,7 @@ body{
     margin-top: 1em;
 }
 
+/*--------------estilos de la pagina del trabajo práctico----------------*/
 .practico{
     background-color: rgba(255, 255, 255, 0.15);
     padding: 3em;
@@ -75,12 +96,44 @@ body{
     display:contents;
 }
 
-.ejercicioJS .boton{
+.boton{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     display: flex;
-    background-color: #8ABFDA;
+    color: black;
+    background-color: #4ebcf3;
     box-shadow: 2px 2px 2px black;
     border-radius: 2em;
     margin: auto;
     margin-top: 1em;
+}
+
+/*-------------------estilos de pagina de registro-------------*/
+.formulario{
+    padding: 5%;
+}
+
+.form-group label, .form-check-label{
+    margin-bottom: 0;
+    margin-left: 3%;
+}
+
+
+.linea-error .form-control{
+    border: 2px solid darkred;
+    background-color: rgba(139, 0, 0, 0.3);
+}
+
+.form-check{
+    margin: auto;
+    margin-left: 3%;
+}
+
+.form-check-input{
+    height: 25px;
+    width: 25px;
+    border:1px solid rgba(255, 255, 255, 0.15);
+}
+
+.enviar{
+    margin: inherit;
 }

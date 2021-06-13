@@ -1,3 +1,26 @@
+const formulario = document.getElementById('formulario');
+const inputs = document.querySelectorAll('#formulario input');
+
+const expresiones = {
+	nombOapell: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
+	password: /^.{4,12}$/, // 4 a 12 digitos.
+	email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+}
+
+const campos = {
+	nombre: false,
+    apellido: false,
+	correo: false,
+	confirmCorreo: false,
+	password: false,
+    confirmPassword: false
+}
+
+formulario.addEventListener('submit', (e) => {
+    e.preventDefoult
+});
+
+//-------------------ejercicios del trabajo practico-----
 function ejercicio1(){
     nombre = null;
     var anios;
@@ -7,7 +30,7 @@ function ejercicio1(){
     while(anios==null || anios==0){
         anios=prompt("Dime tu edad:")
     }
-    alert("Bienvenido, " + nombre + ". Ya has vivido aprox "+anios*365+" dias! faaa")
+    alert("Bienvenido, " + nombre + ". Ya has vivido aprox "+anios*365+" dias! faaa...")
 }
 
 function rectangulo(){
@@ -56,4 +79,20 @@ function ejercicio5(){
         intentos++;
     }while(num!=random)
     alert("FELICITACIONES! SI, EL NUMERO ERA EL "+random+" Solo te costó "+intentos+" intentos descubrirlo!")
+}
+
+function ejercicio6(){
+    var str = prompt("Ingrese su frase","");
+    var res = str.split(" ");
+    var num = res.length;
+    var inv = res.slice().reverse();
+    var az = res.slice().sort();
+    var za = az.slice().reverse();
+    
+    alert("A continuación, información sobre su frase:\n-Tiene un largo de: "+num+
+    " palabras\n-Empieza con la palabra '"+res[0]+
+    "'\n-Termina con la palabra '"+res[res.length-1]+
+    "'\n-Su frase escrita en orden inverso: "+inv.join(" ")+
+    "\n-Su frase ordenada alfabéticamente: "+az.join(" ")+
+    "\n-Su frase ordenada de la Z a la A: "+za.join(" "));
 }

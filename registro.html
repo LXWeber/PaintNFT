@@ -2,11 +2,9 @@
 <html lang="es">
 
 <head>
-    <title>Paint NFT / kejezto</title>
+    <title>Iniciar sesión | Paint NFT</title>
     <meta charset="UTF-8">
-    <meta name="description" content="Sitio web para comprar NFTs hechos en paint">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="keywords" content="NFT, paint, comprar, vender, arte, cripto, dibujos feos, etc">
     <link rel="icon" href="./images/icono.png">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Neucha&display=swap" rel="stylesheet">
@@ -24,14 +22,13 @@
             aria-controls="barraSuperior" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
         <div class="collapse navbar-collapse" id="barraSuperior">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="index.html">Home</a>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="kejezto.html">¿Kejezto!?<span class="sr-only">(current)</span></a>
+                <li class="nav-item">
+                    <a class="nav-link" href="kejezto.html">¿Kejezto!?</a>
                 </li>
                 <li class="nav-item dropdown dropright">
                     <a id="navbardrop" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Otros</a>
@@ -49,7 +46,7 @@
                             </li>
                             <li>
                                 <a class="dropdown-item" href="practicoJS.html">
-                                    <h4>Practicos JS</h4>
+                                    <h4>Practicos JS<span class="sr-only">(current)</span></h4>
                                 </a>
                             </li>
                         </ul>
@@ -57,52 +54,70 @@
                 </li>
             </ul>
             <a href="registro.html">
-                <button class="btn btn-outline-success my-2 my-lg-0" type="button" >
-                Registrarse</button>
+                <button class="btn btn-outline-success my-2 my-lg-0 active" type="button">
+                    Registrarse<span class="sr-only">(current)</span></button>
             </a>
         </div>
     </nav>
-    <div class="container">
-        <div class="row">
-            <div class="col-8">
-                <h2 class="text-center">A ver a ver... ¿De que se trata todo esto?</h2>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo id ipsum deleniti eaque asperiores, inventore debitis commodi in porro ex architecto ratione quasi vel laborum nihil similique impedit voluptates praesentium?</p>
+
+    <form id="formulario" class="container formulario">
+        <div class="row linea">
+            <p class="col-12">(Esto es un sitio web de prueba, no se esta registrando en nada)</p>
+        </div>
+        <div class="row linea">
+            <div class="form-group col-md-5">
+                <label for="nombre">Nombre</label>
+                <input type="text" required class="form-control" id="nombre" placeholder="Nombre">
+                
             </div>
-            <div class="col-4">
-                <a href="bozkejo.html">
-                    <img class="img-thumbnail img-responsive" src="index.png" title="El primer bozquejo de la pagina (Aun no a la venta)">
-                </a>
+            <div class="form-group col-md-5 col-9">
+                <label for="apellido">Apellido</label>
+                <input type="text" required class="form-control" id="apellido" placeholder="Apellido">
+            </div>
+            <div class="form-group col-md-2 col-3">
+                <label for="edad">Edad</label>
+                <input type="number" required class="form-control" id="edad" placeholder="+18">
             </div>
         </div>
-        <div class="row">
-            <div class="col-4">
-                <a href="bozkejo.html">
-                    <img class="img-thumbnail img-responsive" src="mas_vendidos.png" title="bozquejo de 'mas vendidos'(Aun no a la venta)">
-                </a>
+        <div class="row linea">
+            <div class="form-group col-md-6">
+                <label for="email">E-mail</label>
+                <input type="email" required class="form-control" id="email" placeholder="correo@ejemplo.com">
             </div>
-            <div class="col-8">
-                <h2 class="text-center">Titlulo 2 de lo que es esto</h2>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo id ipsum deleniti eaque asperiores, inventore debitis commodi in porro ex architecto ratione quasi vel laborum nihil similique impedit voluptates praesentium?</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-8">
-                <h2 class="text-center">Titulo final</h2>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo id ipsum deleniti eaque asperiores, inventore debitis commodi in porro ex architecto ratione quasi vel laborum nihil similique impedit voluptates praesentium?</p>
-            </div>
-            <div class="col-4">
-                <a href="bozkejo.html">
-                    <img class="img-thumbnail img-responsive" src="imagen.png" title="Así luciría el sitio que te muestre cada pagina... SI SIQUIERA SUPUERA COMO HACERLO!">
-                </a>
+            <div class="form-group col-md-6">
+                <label for="confirmEmail">Confirmar E-mail</label>
+                <input type="email" required class="form-control" id="confirmEmail" placeholder="correo@ejemplo.com">
             </div>
         </div>
-    </div>
+        <div class="row linea">
+            <div class="form-group col-md-6">
+                <label for="contraseña">Contraseña</label>
+                <input type="password" required class="form-control" id="contraseña">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="confirmContraseña">Confirmar contraseña</label>
+                <input type="password" required class="form-control" id="confirmContraseña">
+            </div>
+        </div>
+        <div class="row linea">
+            <div class="form-check col-9">
+                <input class="form-check-input" type="checkbox" id="termYcond">
+                <label class="form-check-label" for="termYcond">Acepto los terminos y condiciones</label>
+            </div>
+            <div class="col-3 enviar">
+                <button type="submit" class="btn btn-outline-primary">Enviar</button>
+            </div>
+        </div>
+    </form>
 </body>
 
+
+<script src="main.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
     crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
     crossorigin="anonymous"></script>
+
 </html>

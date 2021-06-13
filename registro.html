@@ -61,40 +61,42 @@
     </nav>
 
     <form id="formulario" class="container formulario">
-        <div class="row linea">
-            <p class="col-12">(Esto es un sitio web de prueba, no se esta registrando en nada)</p>
+        <div class="row linea errores">
+            <ul>
+                <p>Revisar los error/es en el/los siguiente/s campo/s</p>
+            </ul>
         </div>
         <div class="row linea">
-            <div class="form-group col-md-5">
-                <label for="nombre">Nombre</label>
-                <input type="text" required class="form-control" id="nombre" placeholder="Nombre">
+            <div id="grupo_nombre" class="form-group col-md-5">
+                <label for="nombre">Nombre/s</label>
+                <input type="text" required class="form-control" id="nombre" placeholder="Su/s nombre/s aquí">
                 
             </div>
-            <div class="form-group col-md-5 col-9">
-                <label for="apellido">Apellido</label>
-                <input type="text" required class="form-control" id="apellido" placeholder="Apellido">
+            <div id="grupo_apellido" class="form-group col-md-5 col-9">
+                <label for="apellido">Apellido/s</label>
+                <input type="text" required class="form-control" id="apellido" placeholder="Su/s apellido/s aquí">
             </div>
-            <div class="form-group col-md-2 col-3">
+            <div id="grupo_edad" class="form-group col-md-2 col-3">
                 <label for="edad">Edad</label>
                 <input type="number" required class="form-control" id="edad" placeholder="+18">
             </div>
         </div>
         <div class="row linea">
-            <div class="form-group col-md-6">
+            <div id="grupo_email" class="form-group col-md-6">
                 <label for="email">E-mail</label>
                 <input type="email" required class="form-control" id="email" placeholder="correo@ejemplo.com">
             </div>
-            <div class="form-group col-md-6">
+            <div id="grupo_confirmEmail" class="form-group col-md-6">
                 <label for="confirmEmail">Confirmar E-mail</label>
                 <input type="email" required class="form-control" id="confirmEmail" placeholder="correo@ejemplo.com">
             </div>
         </div>
         <div class="row linea">
-            <div class="form-group col-md-6">
+            <div id="grupo_contraseña" class="form-group col-md-6">
                 <label for="contraseña">Contraseña</label>
                 <input type="password" required class="form-control" id="contraseña">
             </div>
-            <div class="form-group col-md-6">
+            <div id="grupo_confirmContraseña" class="form-group col-md-6">
                 <label for="confirmContraseña">Confirmar contraseña</label>
                 <input type="password" required class="form-control" id="confirmContraseña">
             </div>

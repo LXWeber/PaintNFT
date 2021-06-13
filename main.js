@@ -1,25 +1,99 @@
-const formulario = document.getElementById('formulario');
-const inputs = document.querySelectorAll('#formulario input');
+const formulario = document.getElementById('formulario'); //Traemos el formulario
+const inputs = document.querySelectorAll('#formulario input');//como así tambien los inputs de éste
 
-const expresiones = {
+const regex = {
 	nombOapell: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
-	password: /^.{4,12}$/, // 4 a 12 digitos.
-	email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+	contraseña: /^.{4,16}$/, // 4 a 16 caracteres.
+	email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/, // que tenga @ y un .algo
 }
 
-const campos = {
-	nombre: false,
-    apellido: false,
-	correo: false,
-	confirmCorreo: false,
-	password: false,
-    confirmPassword: false
+const campos = { // Por defecto todos los campos estan en false
+	nombre:             false,
+    apellido:           false,
+    edad:               false,
+	email:              false,
+	confirmEmail:       false,
+	contraseña:         false,
+    confirmContraseña:  false
 }
 
-formulario.addEventListener('submit', (e) => {
-    e.preventDefoult
+const validar =(e)=>{
+    switch (e.target.id){ // "Switchea" segun los diferentes ID de los input
+        case "nombre":
+            validaInputs(regex.nombOapell, e.target, e.target.id);
+        break;
+        case "apellido":
+            validaInputs(regex.nombOapell, e.target, e.target.id);
+        break;
+        case "edad":
+            if(e.target.value>=18&&e.target.value<125){ // la edad hace la validación aqui mismo, sin necesidad de expreciones regulares
+                document.getElementById('grupo_edad').classList.remove('error');
+                document.getElementById('grupo_edad').classList.add('bien');
+                campos['edad']=true;
+            }else{
+                document.getElementById('grupo_edad').classList.remove('bien');
+                document.getElementById('grupo_edad').classList.add('error');
+                campos['edad']=false
+            }
+        break;
+        case "email":
+            validaInputs(regex.email, e.target, e.target.id);
+            validaIguales(e.target.id, 'confirmEmail');
+        break;
+        case "confirmEmail":
+            validaIguales('email', e.target.id);
+        break;
+        case "contraseña":
+            validaInputs(regex.contraseña, e.target, e.target.id);
+            validaIguales(e.target.id, 'confirmContraseña');
+        break;
+        case "confirmContraseña":
+            validaIguales('contraseña', e.target.id);
+        break;
+    }
+}
+
+const validaInputs=(expresion, et, id)=>{ // funcion que recibe la exprecion regular para cada caso y
+    if(expresion.test(et.value)){    //  sobre qué aplicarla
+        document.getElementById(`grupo_${id}`).classList.remove('error'); // quita estilos de error
+        document.getElementById(`grupo_${id}`).classList.add('bien'); // agrega los estilos de que está too bien
+        campos[id]=true; // cambia el estado del campo del mismo nombre
+    }else{ // lo mismo que arriba pero al vezre
+        document.getElementById(`grupo_${id}`).classList.remove('bien');
+        document.getElementById(`grupo_${id}`).classList.add('error');
+        campos[id]=false;
+    }
+}
+
+const validaIguales=(otro, id)=>{//compara los valores de 2 id pasados por parametro
+    const uno = document.getElementById(id);
+    const dos = document.getElementById(otro);
+
+    if(uno.value===dos.value){
+        document.getElementById(`grupo_${id}`).classList.remove('error');
+        document.getElementById(`grupo_${id}`).classList.add('bien');
+        campos[id]=true;
+    }else{
+        document.getElementById(`grupo_${id}`).classList.remove('bien');
+        document.getElementById(`grupo_${id}`).classList.add('error');
+        campos[id]=false;
+    }
+}
+
+formulario.addEventListener('submit', (e) => {// Lo que ejecuta el boton de enviar
+    e.preventDefault();// evitamos que cambie la url
+	const termYcond = document.getElementById('termYcond');//traemos el checkbox de los terminos y condiciones
+    if(campos.nombre && campos.apellido && campos.edad && campos.email && campos.confirmEmail && campos.contraseña && campos.confirmContraseña && termYcond.checked){
+        // si toooodos los campos y el checkbox is checked...
+        console.log("enviado!!");
+        formulario.style.display="none";
+    }
 });
 
+inputs.forEach((input)=>{
+    input.addEventListener('keyup', validar); //Cada que se levanta la tecla se ejecuta la validación
+    input.addEventListener('blur', validar); // de igual manera si se le quita el foco al input
+});
 //-------------------ejercicios del trabajo practico-----
 function ejercicio1(){
     nombre = null;

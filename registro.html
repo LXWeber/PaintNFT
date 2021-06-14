@@ -61,10 +61,7 @@
     </nav>
 
     <form id="formulario" class="container formulario">
-        <div class="row linea errores">
-            <ul>
-                <p>Revisar los error/es en el/los siguiente/s campo/s</p>
-            </ul>
+        <div id="errores" class="row linea errores">
         </div>
         <div class="row linea">
             <div id="grupo_nombre" class="form-group col-md-5">
@@ -103,7 +100,7 @@
         </div>
         <div class="row linea">
             <div class="form-check col-9">
-                <input class="form-check-input" type="checkbox" id="termYcond">
+                <input class="form-check-input" type="checkbox" id="termYcond" required>
                 <label class="form-check-label" for="termYcond">Acepto los terminos y condiciones</label>
             </div>
             <div class="col-3 enviar">
@@ -111,6 +108,7 @@
             </div>
         </div>
     </form>
+    <div id="enviado" class="enviado"></div>
 </body>
 
 

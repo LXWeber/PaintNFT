@@ -1,9 +1,11 @@
 const formulario = document.getElementById('formulario'); //Traemos el formulario
 const inputs = document.querySelectorAll('#formulario input');//como así tambien los inputs de éste
+const enviado = document.getElementById('enviado'); // y el div donde vamos a mostrar los datos del formulario enviado
+const errores = document.getElementById('errores');
 
 const regex = {
-	nombOapell: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
-	contraseña: /^.{4,16}$/, // 4 a 16 caracteres.
+	nombOapell: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos, hasta 40 caracteres
+	contraseña: /^.{4,16}$/, // 4 a 16 caracteres
 	email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/, // que tenga @ y un .algo
 }
 
@@ -83,10 +85,53 @@ const validaIguales=(otro, id)=>{//compara los valores de 2 id pasados por param
 formulario.addEventListener('submit', (e) => {// Lo que ejecuta el boton de enviar
     e.preventDefault();// evitamos que cambie la url
 	const termYcond = document.getElementById('termYcond');//traemos el checkbox de los terminos y condiciones
+    const camposError = {};
+    const mensajesError = [
+        "El nombre no puede tener numeros, maximo 40 caracteres",
+        "El apellido no puede tener numeros, maximo 40 caracteres",
+        "Debe ser mayor de edad y menor de 125",
+        "El Email debe tener un @ y un '.com' o similar",
+        "Los Email no coinciden",
+        "La contraseña debe tener entre 4 y 16 cracteres",
+        "Las contraseñas no coinciden"
+    ];
+    const camposValor = {};
+    const keys = Object.keys(campos);
     if(campos.nombre && campos.apellido && campos.edad && campos.email && campos.confirmEmail && campos.contraseña && campos.confirmContraseña && termYcond.checked){
-        // si toooodos los campos y el checkbox is checked...
+        // si toooodos los campos son verdaderos y el checkbox is checked...
         console.log("enviado!!");
         formulario.style.display="none";
+        enviado.style.display="block";
+        var pCabecera = document.createElement("p");
+        var pPie = document.createElement("p");
+        pCabecera.innerText="FELICITACIONES! En breve recibirá un email de confirmación (Mentira, no recibirá nada pero hagamos de cuenta que si)\nLos datos enviados fueron los siguientes:";
+        enviado.appendChild(pCabecera);
+        var lista = document.createElement("ul");
+        for(let i=0; i<keys.length; i++){
+            camposValor[keys[i]] = document.getElementById(keys[i]).value;
+            var li = document.createElement("li");
+            li.innerText = keys[i]+":  "+camposValor[keys[i]];
+            lista.appendChild(li);
+        }
+        enviado.appendChild(lista);
+        pPie.innerText="Como podrá apreciar al ver expuesta su contreseña, nuestra seguridad no es de lo mejor\nEstamos trabajando para mejorar nuestro sitio, cordialmente Paint NFTeam (Re que soy yo solo, porque hablo en plural?)";
+        enviado.appendChild(pPie);
+    } else {
+        errores.style.display="block";
+        errores.innerHTML="";
+        var pECabecera = document.createElement("p");
+        pECabecera.innerText="Revisar los error/es en el/los siguiente/s campo/s\n";
+        errores.appendChild(pECabecera);
+        var lista = document.createElement("ul");        
+        for(let i=0;i<keys.length;i++){
+            if(!campos[keys[i]]){
+                camposError[keys[i]] = mensajesError[i];
+                var li = document.createElement("li");
+                li.innerText = camposError[keys[i]];
+                lista.appendChild(li);
+            }
+        }
+        errores.appendChild(lista);
     }
 });
 

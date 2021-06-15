@@ -177,3 +177,12 @@ body{
     margin-top: 2em;
     margin-bottom: 2em;
 }
+
+/*------------Estilo footer----------------*/
+
+.footer{
+    color: white;
+    padding: 2em;
+    background: linear-gradient(to right, #2f3233, #222e35);
+    border-top: 2px solid white;
+}

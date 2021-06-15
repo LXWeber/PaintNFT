@@ -54,7 +54,7 @@ body{
     max-width: 100vh;
     margin-left: auto;
     margin-right: auto;
-    border: 2px solid #8ABFDA;
+    border: 2px solid #4ebcf3;
     border-radius: .25rem;
 }
 
@@ -81,6 +81,21 @@ body{
 .container h2{
     text-align: center;
     margin-top: 1em;
+}
+
+/*------------------estilos del cuerpo del la pagina principal-----------*/
+.card{
+    border: 2px solid #4ebcf3;
+    border-radius: .25rem;
+    max-height: 200vh;
+    max-width: 37vh;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.card p{
+    font-size: 0.85em;
 }
 
 /*--------------estilos de la pagina del trabajo práctico----------------*/
